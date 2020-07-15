@@ -8,6 +8,7 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
 
 
 ## New Features
+* Pause/ resume button (esc)
 
 ## Coding Criteria
 
