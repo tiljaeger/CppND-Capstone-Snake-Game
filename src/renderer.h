@@ -12,7 +12,8 @@ class Renderer {
   ~Renderer();
 
   void Render(Snake const snake, SDL_Point const &food);
-  void UpdateWindowTitle(int score, int fps);
+  void UpdateWindowTitle(int score, int fps, bool isPause);
+  void UpdatePauseTitle(int score, int fps);
 
  private:
   SDL_Window *sdl_window;

@@ -14,6 +14,7 @@ class Game {
            std::size_t target_frame_duration);
   int GetScore() const;
   int GetSize() const;
+  void pause();
 
  private:
   Snake snake;
@@ -26,8 +27,12 @@ class Game {
 
   int score{0};
 
+  bool _paused;
+
   void PlaceFood();
   void Update();
+  void Pause();
+  void Resume();
 };
 
 #endif
