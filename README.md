@@ -9,8 +9,12 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
 
 ## New Features
 * Pause/ resume button (esc)
+* Score List
 
 ## Coding Criteria
+* The project demonstrates an understanding of C++ functions and control structures.
+ * A variety of control structures are used in the project. (e.g. scoreList.cpp. snake.cpp)
+ * The project code is clearly organized into functions. (compare complete source code)
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
