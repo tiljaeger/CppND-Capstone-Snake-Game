@@ -29,7 +29,9 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
 * Classes abstract implementation details from their interfaces.
   * All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways. (many examples in the code)
 * The project makes use of references in function declarations.
-  * At least two variables are defined as references, or two functions use pass-by-reference in the project code. (e.g. using speed in snake as reference, 
+  * At least two variables are defined as references, or two functions use pass-by-reference in the project code. (e.g. using speed in snake as reference, controller.cpp: HandleInput())
+* The project uses multithreading
+  * The project uses multiple threads in the execution. (e.g. every time the snake eats energy food, an energy thread is started -> the snake speeds up for 5 sec)
 
 
 ## Dependencies for Running Locally
