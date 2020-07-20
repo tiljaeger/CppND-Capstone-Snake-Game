@@ -9,7 +9,8 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
 
 ## New Features
 * Pause/ resume button (esc)
-* Score List
+* Score List (sorted scores are presented)
+* Energy food (special food speeds up the snake for 5 sec) 
 
 ## Coding Criteria
 * The project demonstrates an understanding of C++ functions and control structures.
