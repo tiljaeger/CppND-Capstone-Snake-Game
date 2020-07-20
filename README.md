@@ -9,8 +9,20 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
 
 ## New Features
 * Pause/ resume button (esc)
+* Score List
 
 ## Coding Criteria
+* The project demonstrates an understanding of C++ functions and control structures.
+  * A variety of control structures are used in the project. (e.g. scoreList.cpp. snake.cpp)
+  * The project code is clearly organized into functions. (compare complete source code)
+* The project reads data from a file and process the data, or the program writes data to a file.
+  * The project reads data from an external file or writes data to a file as part of the necessary operation of the program.(e.g. scoreList.cpp)
+* The project accepts user input and processes the input.
+  * The project accepts input from a user as part of the necessary operation of the program. (e.g. player.cpp, controller.cpp: HandleInput())
+* The project uses Object Oriented Programming techniques.
+  * The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks. (e.g. scorelist.h, scorelist.cpp)
+* Classes use appropriate access specifiers for class members.
+  * All class data members are explicitly specified as public, protected, or private. (e.g. scorelist.h) 
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
