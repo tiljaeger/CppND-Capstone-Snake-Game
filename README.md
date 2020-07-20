@@ -24,6 +24,13 @@ The project, based on/ forked from https://github.com/udacity/CppND-Capstone-Sna
   * The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks. (e.g. scorelist.h, scorelist.cpp)
 * Classes use appropriate access specifiers for class members.
   * All class data members are explicitly specified as public, protected, or private. (e.g. scorelist.h) 
+* Class constructors utilize member initialization lists.
+  * All class members that are set to argument values are initialized through member initialization lists. (many examples in code, e.g. Game constructor)
+* Classes abstract implementation details from their interfaces.
+  * All class member functions document their effects, either through function names, comments, or formal documentation. Member functions do not change program state in undocumented ways. (many examples in the code)
+* The project makes use of references in function declarations.
+  * At least two variables are defined as references, or two functions use pass-by-reference in the project code. (e.g. using speed in snake as reference, 
+
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
