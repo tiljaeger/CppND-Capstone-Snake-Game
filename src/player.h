@@ -13,16 +13,9 @@ class Player {
             return _name;
         }
 
-        void setScore(int score) {
-            _score = score;
-        }
 
     private:
         string _name;
-        int _score{0};
-
-        void toLowerCase();
-
 
 };
 

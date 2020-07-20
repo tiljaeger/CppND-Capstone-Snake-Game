@@ -16,7 +16,6 @@ class ScoreHist {
 
     private:
         fstream file;
-        //vector<tuple<string, int, int>> scoreVector;
 
 };
 
