@@ -1,6 +1,9 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
+#include <thread>
+#include <chrono>
+
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
@@ -65,6 +68,11 @@ void Game::PlaceFood() {
   }
 }
 
+void TimerThread(bool *poisened) {
+  std::this_thread::sleep_for(std::chrono::seconds{5});
+  *poisened = false;
+}
+
 void Game::Update() {
   if (this->_paused || !snake.alive) return;
 
@@ -73,6 +81,10 @@ void Game::Update() {
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<> dis(1,10);
+
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
     score++;
@@ -80,6 +92,12 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
+
+    if(5 <= dis(gen)) {
+      _poisenFood = true;
+      std::thread poisenFoodTimer(TimerThread, &_poisenFood);
+
+    }
   }
 }
 

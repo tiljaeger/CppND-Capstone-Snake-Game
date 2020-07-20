@@ -28,6 +28,7 @@ class Game {
   int score{0};
 
   bool _paused;
+  bool _poisenFood;
 
   void PlaceFood();
   void Update();
