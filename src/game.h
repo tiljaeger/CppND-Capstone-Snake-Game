@@ -20,15 +20,18 @@ class Game {
   Snake snake;
   SDL_Point food;
 
-  std::random_device dev;
-  std::mt19937 engine;
+  std::random_device dev1;
+  std::random_device dev2;
+  std::mt19937 engine1;
+  std::mt19937 engine2;
+
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
 
   int score{0};
 
   bool _paused;
-  bool _poisenFood;
+  bool _energyFood;
 
   void PlaceFood();
   void Update();

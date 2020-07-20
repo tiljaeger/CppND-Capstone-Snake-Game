@@ -7,7 +7,7 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
-      engine(dev()),
+      engine1(dev1()), engine2(dev2()),
       random_w(0, static_cast<int>(grid_width)),
       random_h(0, static_cast<int>(grid_height)) {
   PlaceFood();
@@ -28,7 +28,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake, *this);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, food, &_energyFood);
 
     frame_end = SDL_GetTicks();
 
@@ -56,8 +56,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 void Game::PlaceFood() {
   int x, y;
   while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
+    x = random_w(engine1);
+    y = random_h(engine1);
     // Check that the location is not occupied by a snake item before placing
     // food.
     if (!snake.SnakeCell(x, y)) {
@@ -68,9 +68,10 @@ void Game::PlaceFood() {
   }
 }
 
-void TimerThread(bool *poisened) {
+void TimerThread(bool *energized, float *snakeSpeed) {
   std::this_thread::sleep_for(std::chrono::seconds{5});
-  *poisened = false;
+  *energized = false;
+  *snakeSpeed -= 0.25;
 }
 
 void Game::Update() {
@@ -81,8 +82,6 @@ void Game::Update() {
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
-  std::random_device rd;
-  std::mt19937 gen(rd());
   std::uniform_int_distribution<> dis(1,10);
 
   // Check if there's food over here
@@ -91,12 +90,14 @@ void Game::Update() {
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
-    snake.speed += 0.02;
+    float *snakeSpeed = snake.speed;
+    *snakeSpeed += 0.02;
+    if(dis(engine2) <= 3) {
+      _energyFood = true;
+    *snakeSpeed += 0.25;
 
-    if(5 <= dis(gen)) {
-      _poisenFood = true;
-      std::thread poisenFoodTimer(TimerThread, &_poisenFood);
-
+      std::thread energyFoodTimer(TimerThread, &_energyFood, snakeSpeed);
+      energyFoodTimer.detach();
     }
   }
 }

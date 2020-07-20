@@ -21,7 +21,8 @@ class Snake {
 
   Direction direction = Direction::kUp;
 
-  float speed{0.1f};
+  float *speed = &snakeSpeed;
+
   int size{1};
   bool alive{true};
   float head_x;
@@ -35,6 +36,8 @@ class Snake {
   bool growing{false};
   int grid_width;
   int grid_height;
+  float snakeSpeed{0.1f};
+
 };
 
 #endif
